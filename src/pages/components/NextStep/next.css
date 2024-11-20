@@ -1,0 +1,33 @@
+.next {
+  display: flex;
+  width: 375px;
+  height: 72px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.back-step {
+  font-size: 14px;
+  color: grey;
+  border: none;
+  background: none;
+  margin: 0 16px;
+}
+
+.next-step {
+  width: 97px;
+  height: 40px;
+  background: #022959;
+  color: white;
+  font-size: 14px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 16px;
+}
+
+.back-step__none {
+  opacity: 0;
+}/*# sourceMappingURL=next.css.map */

@@ -1,13 +1,17 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MultiForm from "./pages/MultiForm";
+import { Provider } from "react-redux";
+import { store } from "./Store/store";
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MultiForm />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MultiForm />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

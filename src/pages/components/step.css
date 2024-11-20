@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .step-number {
   color: white; /* Или другой цвет */
   border: 1px solid white;
@@ -5,6 +6,7 @@
   border-radius: 50%;
   font-size: 1.2rem;
 }
+
 .step-number__active {
   color: white; /* Или другой цвет */
   border: 1px solid white;
@@ -13,6 +15,7 @@
   font-size: 1.2rem;
   background-color: #bee2fd;
 }
+
 .step {
   position: absolute;
   left: 0;
@@ -21,4 +24,4 @@
   margin-top: 32px;
   justify-content: center;
   gap: 16px;
-}
+}/*# sourceMappingURL=step.css.map */
