@@ -1,0 +1,32 @@
+.user-plan {
+  border: 1px solid #d6d9e6;
+  width: 295px;
+  &__container {
+    padding: 14px 151px 18px 16px;
+    display: inline-flex;
+    gap: 14px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__text {
+    font-size: 14px;
+    color: gray;
+  }
+}
+@media (min-width: 960px) {
+  .user-plan {
+    width: 138px;
+    &__container {
+      //padding: 20px 82px 100px 16px;
+      display: inline-flex;
+      flex-direction: column;
+    }
+  }
+}

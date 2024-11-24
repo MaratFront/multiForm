@@ -1,0 +1,23 @@
+.add-ons {
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  &__container {
+    height: 62px;
+    display: flex;
+    align-items: center;
+  }
+  &__info {
+    padding-left: 16px;
+  }
+  &__check {
+    margin-left: 16px;
+    width: 20px;
+    height: 20px;
+  }
+  &__price {
+    font-size: 12px;
+    color: #483eff;
+    padding: 0 16px 0 29px;
+    font-weight: 400;
+  }
+}

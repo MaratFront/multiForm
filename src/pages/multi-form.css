@@ -9,6 +9,7 @@ button {
 .multi-form {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: #eff5ff;
   position: relative;
@@ -17,4 +18,15 @@ button {
 
 .multi-step {
   position: relative;
+  align-items: center;
+}
+
+@media (min-width: 940px) {
+  .multi-step {
+    position: absolute;
+    left: 0;
+  }
+  .desc-img {
+    position: relative;
+  }
 }/*# sourceMappingURL=multi-form.css.map */

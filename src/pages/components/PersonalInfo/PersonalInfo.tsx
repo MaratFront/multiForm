@@ -1,18 +1,27 @@
 import React from "react";
 import Input from "../../../UI/Input";
 import "../PersonalInfo/personal.css";
-export default function PersonalInfo() {
+import NextStep from "../NextStep/NextStep";
+import { useSelector } from "react-redux";
+import { ReactComponent as BgSidebarDesc } from "../../../assets/images/BgSidebarDesc.svg";
+import useWidthWindow from "../../../customHooks/useWidthWindow";
+import Step from "../Step";
+import PersonalSection from "../PersonalSection/PersonalSection";
+interface IPersonalInfo {
+  title: string;
+  text: string;
+  // children: React.ReactNode;
+}
+export default function PersonalInfo({ title, text }: IPersonalInfo) {
   return (
     <div className="personal">
-      <h1 className="personal__title">Personal info</h1>
-      <p className="personal__text">
-        Please provide your name, email address, and phone number.
-      </p>
-      <div className="personal__data">
-        <Input title="name" placeholder="e.g.Stephen King" />
-        <Input title="Email Address" placeholder="e.g. stephenking@lorem.com" />
-        <Input title="Phone Number" placeholder="e.g. +1 234 567 890" />
+      {useWidthWindow() >= 940 && <BgSidebarDesc />}
+      <div className="personal__container">
+        <h1 className="personal__title">{title}</h1>
+        <p className="personal__text">{text}</p>
       </div>
+      <PersonalSection />
+      <Step />
     </div>
   );
 }

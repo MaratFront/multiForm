@@ -1,27 +1,53 @@
-@charset "UTF-8";
 .step-number {
-  color: white; /* Или другой цвет */
-  border: 1px solid white;
-  padding: 0.5rem 1rem;
   border-radius: 50%;
-  font-size: 1.2rem;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
 }
 
 .step-number__active {
-  color: white; /* Или другой цвет */
-  border: 1px solid white;
-  padding: 0.5rem 1rem;
   border-radius: 50%;
-  font-size: 1.2rem;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #bee2fd;
 }
 
 .step {
   position: absolute;
-  left: 0;
-  width: 100%; /* Совпадает с шириной картинки */
+  left: 50%;
   display: flex;
-  margin-top: 32px;
   justify-content: center;
   gap: 16px;
+  transform: translate(-50%, -69px);
+}
+
+@media (min-width: 940px) {
+  .step {
+    left: auto;
+    display: inline-flex;
+    gap: 33px;
+    flex-direction: column;
+    margin: 40px 32px;
+    transform: none;
+  }
+  .step__item {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+  }
+  .step-count {
+    font-size: 16px;
+    color: #abbcff;
+  }
+  .step-title {
+    font-size: 14px;
+    font-weight: bold;
+  }
 }/*# sourceMappingURL=step.css.map */

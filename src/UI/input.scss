@@ -14,3 +14,12 @@
   padding-left: 16px;
   width: 275px;
 }
+@media (min-width: 940px) {
+  .label:last-child {
+    padding-bottom: 92px;
+  }
+  .input {
+    width: 450px;
+    height: 48px;
+  }
+}

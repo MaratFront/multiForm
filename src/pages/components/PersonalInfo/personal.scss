@@ -6,6 +6,8 @@
   box-shadow: 0px 0px 10px 0 #979797;
   border-radius: 10px;
   padding: 0 24px;
+  height: auto;
+  position: relative;
   transform: translate(0, -74px);
   &__title {
     font-weight: bold;
@@ -17,8 +19,32 @@
     font-size: 16px;
     line-height: 20px;
     color: grey;
+    padding-bottom: 22px;
   }
-  &__data {
-    padding-top: 22px;
+}
+@media (min-width: 940px) {
+  .personal {
+    display: flex;
+    transform: none;
+    flex-direction: row;
+    gap: 100px;
+    padding: 16px 100px 16px 16px;
+    &__items {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 470px;
+    }
+    &__title {
+      padding: 56px 0 11px;
+      font-size: 37px;
+    }
+    &__text {
+      padding-bottom: 40px;
+      width: 450px;
+    }
+  }
+  .personal:first-child {
+    padding-left: 16px;
   }
 }

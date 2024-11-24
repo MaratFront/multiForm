@@ -1,10 +1,10 @@
 .next {
-  display: flex;
+  display: inline-flex;
   width: 375px;
-  height: 72px;
   justify-content: space-between;
-  align-items: center;
   background-color: white;
+  align-items: center;
+  transform: translate(0, -32px);
 }
 .back-step {
   font-size: 14px;
@@ -12,6 +12,8 @@
   border: none;
   background: none;
   margin: 0 16px;
+  display: flex;
+  // align-self: center;
 }
 .next-step {
   width: 97px;
@@ -20,11 +22,22 @@
   color: white;
   font-size: 14px;
   border: none;
+  margin: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 16px;
+  border-radius: 4px;
+  font-weight: 800;
 }
 .back-step__none {
   opacity: 0;
+}
+@media (min-width: 940px) {
+  .next {
+    height: 32px;
+    position: absolute;
+    display: flex;
+    width: 485px;
+    bottom: 0;
+  }
 }
