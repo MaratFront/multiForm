@@ -9,6 +9,9 @@
   height: auto;
   position: relative;
   transform: translate(0, -74px);
+  &__items:last-child {
+    padding-bottom: 32px;
+  }
   &__title {
     font-weight: bold;
     padding: 32px 0 9px;
@@ -21,6 +24,16 @@
     color: grey;
     padding-bottom: 22px;
   }
+  &__items {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+  &__items:last-child {
+    .user-plan:last-child {
+      margin-bottom: 24px;
+    }
+  }
 }
 @media (min-width: 940px) {
   .personal {
@@ -29,14 +42,17 @@
     flex-direction: row;
     gap: 100px;
     padding: 16px 100px 16px 16px;
+    &__container {
+      position: relative;
+    }
     &__items {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      max-width: 470px;
+      max-width: 450px;
     }
     &__title {
-      padding: 56px 0 11px;
+      padding: 40px 0 11px;
       font-size: 37px;
     }
     &__text {

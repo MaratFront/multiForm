@@ -1,23 +1,27 @@
 import React from "react";
 import "../AddOns/addOns.css";
 import ItemTitle from "../itemTitle/itemTitle";
+import Checkbox from "../Checkbox/Checkbox";
 import ItemText from "../ItemText/ItemText";
 interface IAddOns {
   title: string;
   text: string;
-  price: string;
+  total: string;
 }
 
-export default function AddOns({ title, text, price }: IAddOns) {
+export default function AddOns({ title, text, total }: IAddOns) {
   return (
     <div className="add-ons">
       <div className="add-ons__container">
-        <input type="checkbox" className="add-ons__check" />
-        <div className="add-ons__info">
-          <ItemTitle title={title} />
-          <ItemText text={text} />
+        <div className="add-ons__left">
+          <Checkbox />
+          <div className="add-ons__info">
+            <ItemTitle title={title} />
+            <ItemText text={text} />
+          </div>
         </div>
-        <p className="add-ons__price">{price}</p>
+
+        <p className="add-ons__price">{total}</p>
       </div>
     </div>
   );

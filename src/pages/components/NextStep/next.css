@@ -4,7 +4,6 @@
   justify-content: space-between;
   background-color: white;
   align-items: center;
-  transform: translate(0, -32px);
 }
 
 .back-step {
@@ -40,7 +39,11 @@
     height: 32px;
     position: absolute;
     display: flex;
-    width: 485px;
+    width: 100%;
     bottom: 0;
+    transform: translate(0, -32px);
+  }
+  .next__step {
+    margin: 0;
   }
 }/*# sourceMappingURL=next.css.map */

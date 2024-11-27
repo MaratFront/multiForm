@@ -7,21 +7,22 @@ import "../pages/multi-form.css";
 import NextStep from "./components/NextStep/NextStep";
 import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
 //import { stepTitles } from "../constants/formData";
+import { steps } from "../constants/formData";
+import { useSelector } from "react-redux";
 export default function MultiForm() {
+  const currentStep = useSelector((state: any) => state.step);
   return (
     <div className="multi-form">
       <div className="multi-step">
         {useWidthWindow() < 940 && <BgSidebarMob />}
       </div>
-      {
-        <>
-          <PersonalInfo
-            title="Personal info"
-            text="Please provide your name, email address, and phone number."
-          />
-          {useWidthWindow() < 940 && <NextStep />}
-        </>
-      }
+      {steps.map(
+        ({ title, text }, index) =>
+          currentStep - 1 === index && (
+            <PersonalInfo title={title} text={text} />
+          )
+      )}
+      {useWidthWindow() < 940 && <NextStep />}
     </div>
   );
 }

@@ -4,7 +4,7 @@
   justify-content: space-between;
   background-color: white;
   align-items: center;
-  transform: translate(0, -32px);
+  //transform: translate(0, -74px);
 }
 .back-step {
   font-size: 14px;
@@ -37,7 +37,11 @@
     height: 32px;
     position: absolute;
     display: flex;
-    width: 485px;
+    width: 100%;
     bottom: 0;
+    transform: translate(0, -32px);
+    &__step {
+      margin: 0;
+    }
   }
 }

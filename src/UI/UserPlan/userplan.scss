@@ -1,6 +1,12 @@
 .user-plan {
   border: 1px solid #d6d9e6;
   width: 295px;
+  border-radius: 8px;
+  &__active {
+    border: 1px solid #483eff;
+    width: 295px;
+    border-radius: 8px;
+  }
   &__container {
     padding: 14px 151px 18px 16px;
     display: inline-flex;
@@ -23,8 +29,13 @@
 @media (min-width: 960px) {
   .user-plan {
     width: 138px;
+    cursor: pointer;
+    &__active {
+      border: 1px solid #483eff;
+      width: 138px;
+      border-radius: 8px;
+    }
     &__container {
-      //padding: 20px 82px 100px 16px;
       display: inline-flex;
       flex-direction: column;
     }

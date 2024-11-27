@@ -1,0 +1,10 @@
+.checkbox {
+  border-radius: 4px;
+  border: 1px solid #d6d9e6;
+  width: 20px;
+  position: relative;
+  height: 20px;
+}
+.checkbox svg {
+  padding-left: calc(50% - 6.5px);
+}/*# sourceMappingURL=checkbox.css.map */

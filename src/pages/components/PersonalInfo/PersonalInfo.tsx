@@ -19,8 +19,9 @@ export default function PersonalInfo({ title, text }: IPersonalInfo) {
       <div className="personal__container">
         <h1 className="personal__title">{title}</h1>
         <p className="personal__text">{text}</p>
+        <PersonalSection />
       </div>
-      <PersonalSection />
+
       <Step />
     </div>
   );

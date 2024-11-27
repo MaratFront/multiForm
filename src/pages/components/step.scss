@@ -6,11 +6,13 @@
   justify-content: center;
   align-items: center;
   border: 1px solid white;
+  color: white;
 }
 .step-number__active {
   border-radius: 50%;
   width: 33px;
   height: 33px;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +25,9 @@
   justify-content: center;
   gap: 16px;
   transform: translate(-50%, -69px);
+  &-title {
+    color: white;
+  }
 }
 @media (min-width: 940px) {
   .step {

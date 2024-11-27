@@ -5,7 +5,7 @@
 }
 
 .label:last-child {
-  padding-bottom: 32px;
+  padding-bottom: 0;
 }
 
 .input {
@@ -15,14 +15,14 @@
   border: 1px solid gray;
   padding-left: 16px;
   width: 275px;
+  margin-top: 3px;
 }
 
 @media (min-width: 940px) {
-  .label:last-child {
-    padding-bottom: 92px;
-  }
   .input {
     width: 450px;
     height: 48px;
+    border-radius: 8px;
+    margin-top: 8px;
   }
 }/*# sourceMappingURL=input.css.map */
