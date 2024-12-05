@@ -1,67 +1,35 @@
 import React from "react";
-import UserPlan from "../../../UI/UserPlan/UserPlan";
-import AddOns from "../../../UI/AddOns/AddOns";
-import Input from "../../../UI/Input";
-import { stepData3, stepData3Year } from "../../../constants/formData";
 import "../PersonalInfo/personal.css";
 import useWidthWindow from "../../../customHooks/useWidthWindow";
 import NextStep from "../NextStep/NextStep";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import RadioButton from "../../../UI/RadioButton/RadioButton";
-import {
-  step1Data,
-  step2Data,
-  step2DataYear,
-} from "../../../constants/formData";
-
+import RenderStepData from "./RenderStepData/RenderStepData";
+import { step2Data, step2DataYear } from "../../../constants/formData";
+import useCurrentState from "../../../customHooks/useCurrentState";
+import { addPlan } from "../../../Store/slices/planSlice";
+import { IStep2Data } from "../../../interfaces/IStep2Data";
 export default function PersonalSection() {
-  const currentRadioFlag = useSelector((state: any) => state.radio.radio);
-  const currentStep = useSelector((state: any) => state.step);
-
+  const { currentRadioFlag, currentStep, currentPlan } = useCurrentState();
+  const dispatch = useDispatch();
+  const mappingToStepData = (data: IStep2Data[]) => {
+    const currentIndexYearItem = data.findIndex(
+      (plan: IStep2Data) => plan.title === currentPlan.plan
+    );
+    dispatch(addPlan(data[currentIndexYearItem]));
+  };
+  React.useEffect(() => {
+    currentRadioFlag === true
+      ? mappingToStepData(step2DataYear)
+      : mappingToStepData(step2Data);
+  }, [currentRadioFlag]);
   return (
     <>
-      <div className="personal__items">
-        {currentStep === 1 &&
-          step1Data.map((step) => (
-            <Input title={step.title} placeholder={step.placeholder} />
-          ))}
-        <>
-          {currentStep === 2 &&
-            currentRadioFlag === false &&
-            step2Data.map((step) => (
-              <UserPlan
-                title={step.title}
-                text={step.total}
-                Img={step.img}
-                time={step.time}
-              />
-            ))}
-          {currentStep === 2 &&
-            currentRadioFlag === true &&
-            step2DataYear.map((step) => (
-              <UserPlan
-                title={step.title}
-                text={step.total}
-                Img={step.img}
-                time={step.time}
-              />
-            ))}
-          {currentStep === 3 &&
-            currentRadioFlag === false &&
-            stepData3.map((step) => (
-              <AddOns title={step.title} text={step.text} total={step.total} />
-            ))}
-
-          {currentStep === 3 &&
-            currentRadioFlag === true &&
-            stepData3Year.map((step) => (
-              <AddOns title={step.title} text={step.text} total={step.total} />
-            ))}
-        </>
-      </div>
+      <RenderStepData />
       {currentStep === 2 && (
         <RadioButton titleLeft="Monthly" titleRight="Yearly" />
       )}
+
       {useWidthWindow() >= 940 && <NextStep />}
     </>
   );

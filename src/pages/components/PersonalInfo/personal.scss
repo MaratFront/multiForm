@@ -9,7 +9,7 @@
   height: auto;
   position: relative;
   transform: translate(0, -74px);
-  &__items:last-child {
+  &__data:last-child {
     padding-bottom: 32px;
   }
   &__title {
@@ -18,18 +18,19 @@
     font-size: 24px;
   }
   &__text {
-    width: 235px;
+    width: 295px;
     font-size: 16px;
     line-height: 20px;
     color: grey;
     padding-bottom: 22px;
+    line-height: 25px;
   }
-  &__items {
+  &__data {
     display: flex;
     gap: 12px;
     flex-direction: column;
   }
-  &__items:last-child {
+  &__data:last-child {
     .user-plan:last-child {
       margin-bottom: 24px;
     }
@@ -45,7 +46,7 @@
     &__container {
       position: relative;
     }
-    &__items {
+    &__data {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;

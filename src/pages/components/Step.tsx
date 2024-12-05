@@ -1,6 +1,6 @@
 import React from "react";
 import "../components/step.css";
-import { useSelector } from "react-redux";
+import useCurrentState from "../../customHooks/useCurrentState";
 import useWidthWindow from "../../customHooks/useWidthWindow";
 export default function Step() {
   const stepData = new Map([
@@ -9,7 +9,7 @@ export default function Step() {
     ["ADD-ONS", 3],
     ["SUMMARY", 4],
   ]);
-  const step = useSelector((state: any) => state.step);
+  const { currentStep } = useCurrentState();
   const width = useWidthWindow();
   return (
     <>
@@ -17,7 +17,9 @@ export default function Step() {
         {Array.from(stepData).map(([key, value]) =>
           width < 940 ? (
             <div
-              className={step === value ? "step-number__active" : "step-number"}
+              className={
+                currentStep === value ? "step-number__active" : "step-number"
+              }
             >
               {value}
             </div>
@@ -26,7 +28,9 @@ export default function Step() {
               <div className="step__item">
                 <div
                   className={
-                    step === value ? "step-number__active" : "step-number"
+                    currentStep === value
+                      ? "step-number__active"
+                      : "step-number"
                   }
                 >
                   {value}

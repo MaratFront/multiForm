@@ -10,7 +10,7 @@
   position: relative;
   transform: translate(0, -74px);
 }
-.personal__items:last-child {
+.personal__data:last-child {
   padding-bottom: 32px;
 }
 .personal__title {
@@ -19,18 +19,19 @@
   font-size: 24px;
 }
 .personal__text {
-  width: 235px;
+  width: 295px;
   font-size: 16px;
   line-height: 20px;
   color: grey;
   padding-bottom: 22px;
+  line-height: 25px;
 }
-.personal__items {
+.personal__data {
   display: flex;
   gap: 12px;
   flex-direction: column;
 }
-.personal__items:last-child .user-plan:last-child {
+.personal__data:last-child .user-plan:last-child {
   margin-bottom: 24px;
 }
 
@@ -45,7 +46,7 @@
   .personal__container {
     position: relative;
   }
-  .personal__items {
+  .personal__data {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

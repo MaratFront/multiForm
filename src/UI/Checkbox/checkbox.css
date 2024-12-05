@@ -4,7 +4,13 @@
   width: 20px;
   position: relative;
   height: 20px;
+  cursor: pointer;
 }
 .checkbox svg {
   padding-left: calc(50% - 6.5px);
+}
+
+.checked {
+  background-color: #483eff;
+  cursor: pointer;
 }/*# sourceMappingURL=checkbox.css.map */

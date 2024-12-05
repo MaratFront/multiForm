@@ -1,25 +1,25 @@
 import React from "react";
 import "../UserPlan/userplan.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addPlan } from "../../Store/slices/planSlice";
-
+import useCurrentState from "../../customHooks/useCurrentState";
 interface IPlan {
   title: string;
-  text: string;
+  total: string;
   Img: React.FC;
   time: string;
 }
 
-export default function UserPlan({ title, text, Img, time }: IPlan) {
+export default function UserPlan({ title, total, Img, time }: IPlan) {
   const dispatch = useDispatch();
-  const planData = useSelector((state: any) => state.plan);
-  console.log(planData);
+  const { currentPlan } = useCurrentState();
+
   const handleClickPlan = () => {
-    dispatch(addPlan({ title, text, time }));
+    dispatch(addPlan({ title, total, time }));
   };
   return (
     <div
-      className={planData.plan === title ? "user-plan__active" : "user-plan"}
+      className={currentPlan.plan === title ? "user-plan__active" : "user-plan"}
       onClick={handleClickPlan}
     >
       <div className="user-plan__container">
@@ -27,7 +27,7 @@ export default function UserPlan({ title, text, Img, time }: IPlan) {
 
         <div className="user-plan__info">
           <p className="item__title">{title}</p>
-          <p className="item__text">{text}</p>
+          <p className="item__text">{total}</p>
         </div>
       </div>
     </div>

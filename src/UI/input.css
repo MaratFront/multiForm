@@ -3,6 +3,13 @@
   flex-direction: column;
   padding-bottom: 16px;
 }
+.label__title {
+  display: flex;
+  justify-content: space-between;
+}
+.label__title .error {
+  color: #ee374a;
+}
 
 .label:last-child {
   padding-bottom: 0;
@@ -17,10 +24,27 @@
   width: 275px;
   margin-top: 3px;
 }
+.input--error {
+  height: 40px;
+  background: none;
+  border-radius: 3px;
+  border: 1px solid gray;
+  padding-left: 16px;
+  width: 275px;
+  margin-top: 3px;
+  border: 1px solid #ee374a;
+}
 
 @media (min-width: 940px) {
   .input {
-    width: 450px;
+    width: 430px;
+    height: 48px;
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+  .input--error {
+    border: 1px solid #ee374a;
+    width: 430px;
     height: 48px;
     border-radius: 8px;
     margin-top: 8px;

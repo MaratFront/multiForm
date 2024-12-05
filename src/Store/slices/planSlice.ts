@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import React from "react";
 const initialState = {
   plan: "Arcade",
   total: "$9/mo",
@@ -9,9 +10,9 @@ const planSlice = createSlice({
   initialState,
   reducers: {
     addPlan(state, action) {
-      const { title, text, time } = action.payload;
+      const { title, total, time } = action.payload;
       state.plan = title;
-      state.total = text;
+      state.total = total;
       state.time = time;
     },
   },

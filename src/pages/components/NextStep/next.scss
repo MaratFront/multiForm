@@ -3,6 +3,10 @@
   width: 375px;
   justify-content: space-between;
   background-color: white;
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+
   align-items: center;
   //transform: translate(0, -74px);
 }
@@ -15,6 +19,7 @@
   display: flex;
   // align-self: center;
 }
+
 .next-step {
   width: 97px;
   height: 40px;
@@ -40,8 +45,28 @@
     width: 100%;
     bottom: 0;
     transform: translate(0, -32px);
-    &__step {
+    &-step {
+      width: 123px;
+      height: 48px;
       margin: 0;
+      background: #022959;
+      color: white;
+      &__submit {
+        background: #483eff;
+        transition: 0.3s;
+      }
+      &__submit:hover {
+        transition: 0.3s;
+        background: #928cff;
+      }
     }
+    &-step:hover {
+      background-color: #164a8a;
+      transition: 0.3s;
+    }
+  }
+  .back-step:hover {
+    transition: 0.3s;
+    color: #022959;
   }
 }

@@ -1,0 +1,35 @@
+.thank-you {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 79px 0 47px 0;
+  width: 295px;
+  &__title {
+    font-size: 24px;
+    padding-bottom: 9px;
+  }
+  &__text {
+    line-height: 25px;
+  }
+  svg {
+    width: 56px;
+    height: 56px;
+    padding-bottom: 24px;
+  }
+}
+@media (min-width: 940px) {
+  .thank-you {
+    width: 450px;
+    padding-top: 165px;
+    &__title {
+      padding-bottom: 12px;
+      font-size: 32px;
+    }
+    svg {
+      width: 80px;
+      height: 80px;
+      padding-bottom: 32px;
+    }
+  }
+}

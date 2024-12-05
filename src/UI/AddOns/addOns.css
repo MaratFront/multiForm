@@ -6,15 +6,21 @@
   align-items: center;
   justify-content: space-between;
 }
+.add-ons__clicked {
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+}
 .add-ons__container {
   height: 62px;
   display: flex;
   width: 100%;
   align-items: center;
+  justify-content: space-between;
 }
 .add-ons__left {
   display: flex;
   align-items: center;
+  padding-left: 16px;
 }
 .add-ons__info {
   padding-left: 16px;
@@ -28,10 +34,13 @@
   width: 20px;
   height: 20px;
 }
+.add-ons .checked {
+  background-color: #483eff;
+}
 .add-ons__price {
   font-size: 12px;
+  padding-right: 16px;
   color: #483eff;
-  padding: 0 16px 0 29px;
   font-weight: 400;
 }
 
@@ -40,6 +49,15 @@
     width: 450px;
     height: 81px;
     cursor: pointer;
+  }
+  .add-ons__clicked {
+    border: 1px solid #483eff;
+    border-radius: 8px;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    height: 81px;
+    justify-content: space-between;
   }
   .add-ons__container {
     display: flex;
@@ -56,9 +74,9 @@
     transition: 0.5s;
   }
   .item-title {
-    font-size: 18px;
+    font-size: 16px;
   }
   .item-text {
-    font-size: 15px;
+    font-size: 14px;
   }
 }/*# sourceMappingURL=addOns.css.map */

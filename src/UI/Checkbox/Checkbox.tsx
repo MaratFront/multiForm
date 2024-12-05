@@ -1,17 +1,18 @@
 import React from "react";
 import { ReactComponent as IconCheckmark } from "../../assets/images/IconCheckmark.svg";
-import { useSelector, useDispatch } from "react-redux";
-import { addChecked } from "../../Store/slices/addOnsSlice";
+import useCurrentState from "../../customHooks/useCurrentState";
 import "./checkbox.css";
-export default function Checkbox() {
-  const dispatch = useDispatch();
-  const checkmark = useSelector((state: any) => state.addOns.isChecked);
-  function checkmarkId() {
-    dispatch(addChecked(!checkmark));
-  }
+interface ICheckboxId {
+  id: string;
+}
+
+export default function Checkbox({ id }: ICheckboxId) {
+  const { checkedItems } = useCurrentState();
+  const isChecked = checkedItems.includes(id); // Проверяем, активен ли чекбокс
+
   return (
-    <div className="checkbox" onClick={checkmarkId}>
-      {checkmark && <IconCheckmark />}
+    <div className={`checkbox ${isChecked ? "checked" : ""}`}>
+      {isChecked && <IconCheckmark />}
     </div>
   );
 }

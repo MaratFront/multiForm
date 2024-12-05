@@ -8,9 +8,9 @@ import NextStep from "./components/NextStep/NextStep";
 import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
 //import { stepTitles } from "../constants/formData";
 import { steps } from "../constants/formData";
-import { useSelector } from "react-redux";
+import useCurrentState from "../customHooks/useCurrentState";
 export default function MultiForm() {
-  const currentStep = useSelector((state: any) => state.step);
+  const { currentStep } = useCurrentState();
   return (
     <div className="multi-form">
       <div className="multi-step">

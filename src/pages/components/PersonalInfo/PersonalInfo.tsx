@@ -1,26 +1,29 @@
 import React from "react";
-import Input from "../../../UI/Input";
 import "../PersonalInfo/personal.css";
-import NextStep from "../NextStep/NextStep";
-import { useSelector } from "react-redux";
 import { ReactComponent as BgSidebarDesc } from "../../../assets/images/BgSidebarDesc.svg";
 import useWidthWindow from "../../../customHooks/useWidthWindow";
 import Step from "../Step";
 import PersonalSection from "../PersonalSection/PersonalSection";
-interface IPersonalInfo {
-  title: string;
-  text: string;
-  // children: React.ReactNode;
-}
+import IPersonalInfo from "../../../interfaces/IPersonalInfo";
+import useCurrentState from "../../../customHooks/useCurrentState";
 export default function PersonalInfo({ title, text }: IPersonalInfo) {
+  const { isConfirm } = useCurrentState();
   return (
     <div className="personal">
       {useWidthWindow() >= 940 && <BgSidebarDesc />}
-      <div className="personal__container">
-        <h1 className="personal__title">{title}</h1>
-        <p className="personal__text">{text}</p>
+      <form className="personal__container">
+        {isConfirm === false ? (
+          <h1 className="personal__title">{title}</h1>
+        ) : (
+          ""
+        )}
+        {isConfirm === false ? (
+          <p className="personal__text personal__bottom--step4">{text}</p>
+        ) : (
+          ""
+        )}
         <PersonalSection />
-      </div>
+      </form>
 
       <Step />
     </div>

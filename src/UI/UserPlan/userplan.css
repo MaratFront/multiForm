@@ -38,7 +38,9 @@
     border-radius: 8px;
   }
   .user-plan__container {
+    padding: 20px 16px 18px 16px;
     display: inline-flex;
     flex-direction: column;
+    gap: 39px;
   }
 }/*# sourceMappingURL=userplan.css.map */

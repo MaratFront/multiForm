@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   gap: 24px;
-  padding-top: 45px;
+  padding: 45px 0 46px 0;
 }
 .radio-container .title-left,
 .radio-container .title-right {

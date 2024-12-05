@@ -1,7 +1,7 @@
 import { ReactComponent as IconArcade } from "../assets/images/IconArcade.svg";
 import { ReactComponent as IconAdvanced } from "../assets/images/IconAdvanced.svg";
 import { ReactComponent as IconPro } from "../assets/images/IconPro.svg";
-import { time } from "console";
+import React from "react";
 export const steps = [
   {
     title: "Personal info",
@@ -21,9 +21,13 @@ export const steps = [
   },
 ];
 export const step1Data = [
-  { title: "Name", placeholder: "e.g. Stephen King" },
-  { title: "Email Address", placeholder: "e.g. stephenking@lorem.com" },
-  { title: "Phone Number", placeholder: "e.g. +1 234 567 890" },
+  { title: "Name", placeholder: "e.g. Stephen King", name: "username" },
+  {
+    title: "Email Address",
+    placeholder: "e.g. stephenking@lorem.com",
+    name: "email",
+  },
+  { title: "Phone Number", placeholder: "e.g. +1 234 567 890", name: "phone" },
 ];
 export const step2Data = [
   { title: "Arcade", total: "$9/mo", img: IconArcade, time: "Monthly" },
@@ -37,18 +41,21 @@ export const step2DataYear = [
 ];
 export const stepData3 = [
   {
+    id: 1,
     title: "Online service",
     text: "Access to multiplayer games",
     total: "+$1/mo",
     isChecked: false,
   },
   {
+    id: 2,
     title: "Larger storage",
     text: "Extra 1TB of cloud save",
     total: "+$2/mo",
     isChecked: false,
   },
   {
+    id: 3,
     title: "Customizable profile",
     text: "Custom theme on your profile",
     total: "+$2/mo",
@@ -57,18 +64,21 @@ export const stepData3 = [
 ];
 export const stepData3Year = [
   {
+    id: 1,
     title: "Online service",
     text: "Access to multiplayer games",
     total: "+$10/yr",
     isChecked: false,
   },
   {
+    id: 2,
     title: "Larger storage",
     text: "Extra 1TB of cloud save",
     total: "+$20/yr",
     isChecked: false,
   },
   {
+    id: 3,
     title: "Customizable profile",
     text: "Custom theme on your profile",
     total: "+$20/yr",

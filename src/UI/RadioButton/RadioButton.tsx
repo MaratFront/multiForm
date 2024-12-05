@@ -1,37 +1,36 @@
 import React, { useState } from "react";
 import "../RadioButton/radioButton.css";
-import { step2DataYear } from "../../constants/formData";
+import useCurrentState from "../../customHooks/useCurrentState";
 import { useDispatch, useSelector } from "react-redux";
 import { radioAction } from "../../Store/slices/radioSlice";
-interface IRadio {
-  titleLeft: string;
-  titleRight: string;
-}
+import IRadio from "../../interfaces/IRadio";
+import RadioTitle from "../UserPlan/RadioTitle/RadioTitle";
 export default function RadioButton({ titleLeft, titleRight }: IRadio) {
   //const [radioCheck, setRadioCheck] = useState(false);
-  const radioCheck = useSelector((state: any) => state.radio.radio);
-
+  const { currentRadioFlag } = useCurrentState();
   const dispatch = useDispatch();
+  const radioCheckClick = () => dispatch(radioAction(!currentRadioFlag));
   return (
-    <div
-      className="radio-container"
-      onClick={() => dispatch(radioAction(!radioCheck))}
-    >
-      <p className={radioCheck === false ? "title-left" : "title-left__active"}>
-        {titleLeft}
-      </p>
-      <div className="radio" onClick={() => dispatch(radioAction(!radioCheck))}>
+    <div className="radio-container" onClick={radioCheckClick}>
+      <RadioTitle
+        title={titleLeft}
+        defaultClassName="title-left"
+        activeClassName="title-left__active"
+        radioFlagProp={false}
+      />
+      <div className="radio" onClick={radioCheckClick}>
         <div
           className={
-            radioCheck === false ? "radio-check" : "radio-check__active"
+            currentRadioFlag === false ? "radio-check" : "radio-check__active"
           }
         ></div>
       </div>
-      <p
-        className={radioCheck === true ? "title-right" : "title-right__active"}
-      >
-        {titleRight}
-      </p>
+      <RadioTitle
+        title={titleRight}
+        defaultClassName="title-right"
+        activeClassName="title-right__active"
+        radioFlagProp={true}
+      />
     </div>
   );
 }
