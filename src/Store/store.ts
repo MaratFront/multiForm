@@ -6,6 +6,7 @@ import addOnsCheckedSlice from "./slices/addOnsCheckedSlice";
 import addOnsCardSlice from "./slices/addOnsCardsSlice";
 import addConfirmSlice from "./slices/addConfirmSlice";
 import formSlice from "./slices/formSlice";
+import inputSlice from "./slices/inputSlice";
 export const store = configureStore({
   reducer: {
     step: stepSlice,
@@ -15,6 +16,7 @@ export const store = configureStore({
     addOns: addOnsCardSlice,
     addConfirm: addConfirmSlice,
     form: formSlice,
+    inputValue: inputSlice,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

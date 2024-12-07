@@ -13,7 +13,8 @@ import {
   step2DataYear,
 } from "../../../../constants/formData";
 export default function RenderStepData() {
-  const { currentRadioFlag, currentStep, isConfirm } = useCurrentState();
+  const { currentRadioFlag, currentStep, isConfirm, inputValue } =
+    useCurrentState();
   const {
     register,
     formState: { errors },
@@ -37,6 +38,7 @@ export default function RenderStepData() {
               placeholder={step.placeholder}
               name={step.name}
               errors={errors[step.name]?.message}
+              inputValue={inputValue}
             />
           ))}
         <>

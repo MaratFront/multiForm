@@ -11,6 +11,7 @@ interface IPlaceholder {
     | FieldError
     | Merge<FieldError, FieldErrorsImpl<any>>
     | undefined;
+  inputValue: string;
 }
 
 export default IPlaceholder;

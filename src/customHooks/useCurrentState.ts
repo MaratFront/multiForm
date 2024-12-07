@@ -1,5 +1,6 @@
 import { useTypedSelector } from "./useTypedSelector";
 export default function useCurrentState() {
+  const inputValue = useTypedSelector((state) => state.inputValue.inputValue);
   const currentRadioFlag = useTypedSelector((state) => state.radio.radio);
   const currentStep = useTypedSelector((state) => state.step);
   const checkedItems = useTypedSelector(
@@ -14,6 +15,7 @@ export default function useCurrentState() {
     currentStep,
     checkedItems,
     currentPlan,
+    inputValue,
     isConfirm,
   };
 }

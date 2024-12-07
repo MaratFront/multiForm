@@ -6,17 +6,16 @@ import useCurrentState from "../../../customHooks/useCurrentState";
 import "../NextStep/next.css";
 export default function NextStep({ errors }: any) {
   const { isConfirm } = useCurrentState();
+  const inputValue = useSelector((state: any) => state.inputValue.inputValue);
   const dispatch = useDispatch();
   const step = useSelector((state: any) => state.step);
+  console.log(inputValue);
   const handleDispatchData = (e: any) => {
     e.preventDefault();
-    console.log(errors);
-    if (errors !== undefined || errors !== null) {
-      if (step < 4 && Object.keys(errors).length === 0) {
-        dispatch(addStep(1));
-        step === 4 && dispatch(addConfirm(true));
-      }
+    if (step < 4 && Object.keys(errors).length === 0) {
+      dispatch(addStep(1));
     }
+    step === 4 && dispatch(addConfirm(true));
 
     return;
   };
