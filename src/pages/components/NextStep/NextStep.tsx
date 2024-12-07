@@ -4,13 +4,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { addConfirm } from "../../../Store/slices/addConfirmSlice";
 import useCurrentState from "../../../customHooks/useCurrentState";
 import "../NextStep/next.css";
-export default function NextStep() {
+export default function NextStep({ errors }: any) {
   const { isConfirm } = useCurrentState();
   const dispatch = useDispatch();
   const step = useSelector((state: any) => state.step);
   const handleDispatchData = (e: any) => {
     e.preventDefault();
-    step < 4 ? dispatch(addStep(1)) : dispatch(addConfirm(true));
+    console.log(errors);
+    if (errors !== undefined || errors !== null) {
+      if (step < 4 && Object.keys(errors).length === 0) {
+        dispatch(addStep(1));
+        step === 4 && dispatch(addConfirm(true));
+      }
+    }
+
+    return;
   };
   return (
     <>

@@ -30,7 +30,7 @@ export default function PersonalSection() {
         <RadioButton titleLeft="Monthly" titleRight="Yearly" />
       )}
 
-      {useWidthWindow() >= 940 && <NextStep />}
+      {/* {useWidthWindow() >= 940 && <NextStep />} */}
     </>
   );
 }

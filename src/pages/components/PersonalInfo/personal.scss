@@ -51,6 +51,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       max-width: 450px;
+      isolation: isolate; /* Изолируем дочерние элементы */
     }
     &__title {
       padding: 40px 0 11px;

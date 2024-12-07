@@ -26,49 +26,52 @@ export default function RenderStepData() {
     console.log("Form submitted");
   }
   return (
-    <div className="personal__data" onSubmit={handleSubmit(onSubmit)}>
-      {currentStep === 1 &&
-        step1Data.map((step) => (
-          <Input
-            key={step.name} // добавлен ключ для предотвращения ошибок React
-            register={register}
-            title={step.title}
-            placeholder={step.placeholder}
-            name={step.name}
-            errors={errors[step.name]?.message}
-          />
-        ))}
-      <>
-        {currentStep === 2 &&
-          (currentRadioFlag === false ? step2Data : step2DataYear).map(
-            (step) => (
-              <UserPlan
-                key={step.title} // уникальный ключ
-                title={step.title}
-                total={step.total}
-                Img={step.img}
-                time={step.time}
-              />
-            )
+    <>
+      <div className="personal__data" onSubmit={handleSubmit(onSubmit)}>
+        {currentStep === 1 &&
+          step1Data.map((step) => (
+            <Input
+              key={step.name} // добавлен ключ для предотвращения ошибок React
+              register={register}
+              title={step.title}
+              placeholder={step.placeholder}
+              name={step.name}
+              errors={errors[step.name]?.message}
+            />
+          ))}
+        <>
+          {currentStep === 2 &&
+            (currentRadioFlag === false ? step2Data : step2DataYear).map(
+              (step) => (
+                <UserPlan
+                  key={step.title} // уникальный ключ
+                  title={step.title}
+                  total={step.total}
+                  Img={step.img}
+                  time={step.time}
+                />
+              )
+            )}
+          {currentStep === 3 &&
+            (currentRadioFlag === false ? stepData3 : stepData3Year).map(
+              (step, index) => (
+                <AddOns
+                  key={index}
+                  id={`add-on-${index}`}
+                  title={step.title}
+                  text={step.text}
+                  total={step.total}
+                />
+              )
+            )}
+          {currentStep === 4 && !isConfirm ? (
+            <Finish />
+          ) : (
+            currentStep === 4 && <ThankYou />
           )}
-        {currentStep === 3 &&
-          (currentRadioFlag === false ? stepData3 : stepData3Year).map(
-            (step, index) => (
-              <AddOns
-                key={index}
-                id={`add-on-${index}`}
-                title={step.title}
-                text={step.text}
-                total={step.total}
-              />
-            )
-          )}
-        {currentStep === 4 && !isConfirm ? (
-          <Finish />
-        ) : (
-          currentStep === 4 && <ThankYou />
-        )}
-      </>
-    </div>
+        </>
+      </div>
+      <NextStep errors={errors} />
+    </>
   );
 }

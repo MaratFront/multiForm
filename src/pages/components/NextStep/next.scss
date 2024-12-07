@@ -4,11 +4,9 @@
   justify-content: space-between;
   background-color: white;
   position: absolute;
-  bottom: 0;
-  z-index: 1000;
-
   align-items: center;
-  //transform: translate(0, -74px);
+  transform: translate(-40px, 0);
+  will-change: transform; /* Создаем новый контекст наложения */
 }
 .back-step {
   font-size: 14px;

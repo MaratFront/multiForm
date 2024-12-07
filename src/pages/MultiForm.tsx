@@ -22,7 +22,7 @@ export default function MultiForm() {
             <PersonalInfo title={title} text={text} />
           )
       )}
-      {useWidthWindow() < 940 && <NextStep />}
+      {/* {useWidthWindow() < 940 && <NextStep />} */}
     </div>
   );
 }
