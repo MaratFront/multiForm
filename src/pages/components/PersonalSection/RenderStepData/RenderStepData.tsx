@@ -24,23 +24,13 @@ export default function RenderStepData() {
   const {
     register,
     formState: { errors },
-    handleSubmit,
   } = useForm<any>({
     resolver: yupResolver(schema),
     mode: "onBlur",
   });
-  function onSubmit(e: any) {
-    e.preventDefault();
-    if (currentStep < 4 && Object.keys(errors).length === 0) {
-      dispatch(addStep(1));
-    }
-    currentStep === 4 && dispatch(addConfirm(true));
-
-    return;
-  }
   return (
     <>
-      <form className="personal__data" onSubmit={handleSubmit(onSubmit)}>
+      <div className="personal__data">
         {currentStep === 1 &&
           step1Data.map((step) => (
             <Input
@@ -84,8 +74,8 @@ export default function RenderStepData() {
             currentStep === 4 && <ThankYou />
           )}
         </>
-        <NextStep errors={errors} onSubmit={onSubmit} />
-      </form>
+      </div>
+      <NextStep errors={errors} />
     </>
   );
 }

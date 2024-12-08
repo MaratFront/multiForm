@@ -18,9 +18,7 @@ export default function Input({
     <label className="label">
       <div className="label__title">
         {title}
-        {inputValue.trim() === "" && errors && (
-          <p className="error">{errors.toString()}</p>
-        )}
+        {errors && <p className="error">{errors.toString()}</p>}
       </div>
       <input
         className={errors ? "input--error" : "input"}
