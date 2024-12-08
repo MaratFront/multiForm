@@ -6,7 +6,11 @@ import ThankYou from "../../PersonalInfo/ThankYou/ThankYou";
 import { schema } from "../../../../pages/components/PersonalInfo/schema";
 import { useForm } from "react-hook-form";
 import NextStep from "../../NextStep/NextStep";
+import { useDispatch } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { addStep } from "../../../../Store/slices/stepSlice";
+import { addConfirm } from "../../../../Store/slices/addConfirmSlice";
+
 import {
   step1Data,
   step2Data,
@@ -15,6 +19,8 @@ import {
 export default function RenderStepData() {
   const { currentRadioFlag, currentStep, isConfirm, inputValue } =
     useCurrentState();
+  const dispatch = useDispatch();
+  console.log(inputValue);
   const {
     register,
     formState: { errors },
@@ -23,12 +29,18 @@ export default function RenderStepData() {
     resolver: yupResolver(schema),
     mode: "onBlur",
   });
-  function onSubmit() {
-    console.log("Form submitted");
+  function onSubmit(e: any) {
+    e.preventDefault();
+    if (currentStep < 4 && Object.keys(errors).length === 0) {
+      dispatch(addStep(1));
+    }
+    currentStep === 4 && dispatch(addConfirm(true));
+
+    return;
   }
   return (
     <>
-      <div className="personal__data" onSubmit={handleSubmit(onSubmit)}>
+      <form className="personal__data" onSubmit={handleSubmit(onSubmit)}>
         {currentStep === 1 &&
           step1Data.map((step) => (
             <Input
@@ -72,8 +84,8 @@ export default function RenderStepData() {
             currentStep === 4 && <ThankYou />
           )}
         </>
-      </div>
-      <NextStep errors={errors} />
+        <NextStep errors={errors} onSubmit={onSubmit} />
+      </form>
     </>
   );
 }
